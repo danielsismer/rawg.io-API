@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameVault — Catálogo</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('gv-theme');
+      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Game<span>Vault</span></a>
+
+      <nav class="nav">
+        <a href="index.html"   class="nav__link">Início</a>
+        <a href="catalog.html" class="nav__link active">Catálogo</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn-icon" id="theme-toggle" title="Alternar tema">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── PAGE HEADER ── -->
+  <div style="padding: 3rem clamp(1rem,4vw,2.5rem) 0; max-width:1280px; margin:0 auto;">
+    <p class="section__label">// Biblioteca completa</p>
+    <h1 class="section__title" style="font-size:clamp(2rem,4vw,3rem); margin-bottom:0.25rem;">Catálogo de Jogos</h1>
+    <p style="color:var(--text-muted); font-size:0.92rem; font-weight:300; margin-bottom:2rem;">
+      Filtre por gênero ou busque pelo nome do jogo.
+    </p>
+
+    <!-- TOOLBAR: busca + filtro -->
+    <div class="catalog-toolbar">
+      <div class="search-wrap">
+        <!-- JS escuta o evento 'input' com debounce -->
+        <input
+          type="text"
+          id="search-input"
+          class="input-search"
+          placeholder="Buscar jogo..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- JS popula este select com as categorias da API -->
+      <select id="genre-select" class="select-genre">
+        <option value="">Todos os gêneros</option>
+        <!-- Opções inseridas via JS -->
+      </select>
+    </div>
+
+    <!-- Barra de progresso de carregamento (JS controla .active) -->
+    <div class="loading-bar" id="loading-bar"></div>
+  </div>
+
+  <!-- ── GRID DE JOGOS ── -->
+  <main class="section" style="padding-top:0;">
+    <!-- JS renderiza os cards aqui -->
+    <div class="games-grid" id="catalog-grid">
+      <!-- Placeholders skeleton enquanto carrega -->
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+      <div class="game-card skeleton"><div class="game-card__thumb"></div><div class="game-card__body"><span class="game-card__genre">.</span><h3 class="game-card__name">.</h3><div class="game-card__footer">.</div></div></div>
+    </div>
+
+    <!-- Botão "Carregar mais" — JS controla visibilidade -->
+    <div style="text-align:center; margin-top:2.5rem;">
+      <button class="btn btn--outline" id="load-more-btn" style="display:none;">
+        Carregar mais jogos ↓
+      </button>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">GameVault</span>
+      <p class="footer__copy">Dados fornecidos por <span>RAWG Video Games Database API</span></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

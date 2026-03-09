@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameVault — Detalhes</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('gv-theme');
+      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Game<span>Vault</span></a>
+
+      <nav class="nav">
+        <a href="index.html"   class="nav__link">Início</a>
+        <a href="catalog.html" class="nav__link">Catálogo</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn-icon" id="theme-toggle" title="Alternar tema">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO IMAGE ── -->
+  <!-- JS insere a imagem de capa aqui -->
+  <div class="detail-hero" id="detail-hero">
+    <!-- placeholder -->
+    <div style="width:100%;height:100%;background:var(--surface2);"></div>
+    <div class="detail-hero__gradient"></div>
+  </div>
+
+  <!-- ── CONTEÚDO PRINCIPAL ── -->
+  <div class="detail-content">
+
+    <!-- Botão voltar -->
+    <a href="catalog.html" class="detail-back">← Voltar ao Catálogo</a>
+
+    <!-- JS preenche este bloco com os dados do jogo -->
+    <div class="detail-grid" id="detail-grid">
+
+      <!-- COLUNA PRINCIPAL -->
+      <div id="detail-main">
+
+        <!-- JS insere: eyebrow, título, meta-chips, descrição -->
+        <p class="detail-eyebrow" id="detail-genre">Carregando...</p>
+        <h1 class="detail-title" id="detail-title">—</h1>
+
+        <div class="detail-meta" id="detail-meta">
+          <!-- chips inseridos via JS -->
+          <span class="meta-chip">⭐ —</span>
+          <span class="meta-chip">📅 —</span>
+          <span class="meta-chip">🗳️ — votos</span>
+        </div>
+        
+
+        <p class="detail-desc-title">// Sobre o jogo</p>
+        <p class="detail-desc" id="detail-desc">
+          Aguardando dados da API...
+        </p>
+
+        <p class="detail-desc-title">// Plataformas</p>
+        <div class="tags-list" id="detail-platforms">
+          <!-- tags inseridas via JS -->
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="detail-sidebar" id="detail-sidebar">
+
+        <div class="sidebar-block">
+          <div class="sidebar-block__label">Avaliação</div>
+          <div class="sidebar-block__value big" id="sidebar-rating">—</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:var(--text-dim);margin-top:0.2rem;" id="sidebar-votes"></div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--border);">
+
+        <div class="sidebar-block">
+          <div class="sidebar-block__label">Lançamento</div>
+          <div class="sidebar-block__value" id="sidebar-released">—</div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="sidebar-block__label">Gêneros</div>
+          <div class="tags-list" id="sidebar-genres"></div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="sidebar-block__label">Desenvolvedor</div>
+          <div class="sidebar-block__value" id="sidebar-dev">—</div>
+        </div>
+
+        <a href="catalog.html" class="btn btn--ghost" style="width:100%;justify-content:center;">
+          ← Ver mais jogos
+        </a>
+
+      </aside>
+    </div>
+
+    <!-- Mensagem de erro (JS exibe se não houver ID na URL) -->
+    <div id="detail-error" style="display:none; text-align:center; padding:4rem 1rem;">
+      <p style="font-family:'Share Tech Mono',monospace;font-size:0.85rem;color:var(--danger);letter-spacing:0.1em;">
+        // ERRO: Jogo não encontrado ou ID inválido na URL.
+      </p>
+      <a href="catalog.html" class="btn btn--ghost" style="margin-top:1.5rem;display:inline-flex;">
+        ← Voltar ao Catálogo
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">GameVault</span>
+      <p class="footer__copy">Dados fornecidos por <span>RAWG Video Games Database API</span></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

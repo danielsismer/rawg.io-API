@@ -1,0 +1,139 @@
+Index · HTML
+Copiar
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameVault — Início</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Restaura tema antes do render para evitar flash
+    (function () {
+      const saved = localStorage.getItem('gv-theme');
+      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Game<span>Vault</span></a>
+
+      <nav class="nav">
+        <a href="index.html"   class="nav__link active">Início</a>
+        <a href="catalog.html" class="nav__link">Catálogo</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn-icon" id="theme-toggle" title="Alternar tema">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <p class="hero__eyebrow">// Bem-vindo ao cofre</p>
+    <h1 class="hero__title">Descubra os<br><em>Melhores Jogos</em></h1>
+    <p class="hero__sub">Explore milhares de títulos, filtre por gênero e mergulhe nos detalhes dos jogos que moldaram a história dos games.</p>
+    <div class="hero__cta">
+      <a href="catalog.html" class="btn btn--primary">Explorar Catálogo</a>
+      <a href="#destaques"   class="btn btn--outline">Ver Destaques ↓</a>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <div class="stats-bar">
+    <div class="stats-bar__inner">
+      <div class="stat-item">
+        <div class="stat-item__num">500K+</div>
+        <div class="stat-item__label">Jogos Indexados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">50+</div>
+        <div class="stat-item__label">Gêneros</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">15+</div>
+        <div class="stat-item__label">Plataformas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">Dados<br>Reais</div>
+        <div class="stat-item__label">Via RAWG API</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESTAQUES ── -->
+  <main id="destaques" class="section">
+    <div class="section__header">
+      <div>
+        <p class="section__label">// Top rated</p>
+        <h2 class="section__title">Destaques da Semana</h2>
+      </div>
+      <a href="catalog.html" class="btn btn--ghost">Ver todos →</a>
+    </div>
+
+    <!-- JS substitui estes cards placeholder pelos dados reais da API -->
+    <div class="games-grid" id="highlights-grid">
+
+      <!-- PLACEHOLDER 1 -->
+      <div class="game-card skeleton">
+        <div class="game-card__thumb"></div>
+        <div class="game-card__body">
+          <span class="game-card__genre">Carregando...</span>
+          <h3 class="game-card__name">—</h3>
+          <div class="game-card__footer"></div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 2 -->
+      <div class="game-card skeleton">
+        <div class="game-card__thumb"></div>
+        <div class="game-card__body">
+          <span class="game-card__genre">Carregando...</span>
+          <h3 class="game-card__name">—</h3>
+          <div class="game-card__footer"></div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 3 -->
+      <div class="game-card skeleton">
+        <div class="game-card__thumb"></div>
+        <div class="game-card__body">
+          <span class="game-card__genre">Carregando...</span>
+          <h3 class="game-card__name">—</h3>
+          <div class="game-card__footer"></div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 4 -->
+      <div class="game-card skeleton">
+        <div class="game-card__thumb">
+            <img src="./" alt="">
+        </div>
+        <div class="game-card__body">
+          <span class="game-card__genre">Carregando...</span>
+          <h3 class="game-card__name">—</h3>
+          <div class="game-card__footer"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">GameVault</span>
+      <p class="footer__copy">Dados fornecidos por <span>RAWG Video Games Database API</span></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

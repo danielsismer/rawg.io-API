@@ -2,6 +2,12 @@ const api_key = "09dd64fe2906466d91c8a6a69e9cc752";
 const api_url = "https://api.rawg.io/api"
 const input = document.querySelector(".input-search")
 
+const savedTheme = localStorage.getItem('gv-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+const toogle = document.querySelector("#theme-toggle")
+
+toogle.addEventListener("click", toggleTheme)
+
 async function setMainGames() {
 
     const data = await fetch(`${api_url}/games?page=1&page_size=4&ordering=-rating&key=${api_key}`);
@@ -182,6 +188,15 @@ async function initCatalog() {
     });
 
 }
+
+function toggleTheme() {
+    const tema_atual = document.documentElement.getAttribute('data-theme');
+    const novo_tema = tema_atual === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', novo_tema);
+    localStorage.setItem('gv-theme', novo_tema);
+}
+
 
 function manipulateRoutes() {
 

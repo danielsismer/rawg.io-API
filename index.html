@@ -6,7 +6,6 @@
   <title>GameVault — Início</title>
   <link rel="stylesheet" href="style.css" />
   <script>
-    // Restaura tema antes do render para evitar flash
     (function () {
       const saved = localStorage.getItem('gv-theme');
       if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
@@ -15,7 +14,6 @@
 </head>
 <body>
 
-  <!-- ── HEADER ── -->
   <header class="header">
     <div class="header__inner">
       <a href="index.html" class="logo">Game<span>Vault</span></a>
